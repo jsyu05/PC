@@ -1,0 +1,22 @@
+name: Windows VPS Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Update system
+      run: |
+        echo "This is Windows Runner"
+        systeminfo
+
+    - name: Install software
+      run: |
+        choco install git -y
+        choco install vim -y
